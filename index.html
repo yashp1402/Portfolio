@@ -1,0 +1,553 @@
+<!-- 4) I want you to Format the navbar, and put the items in the way we scroll down. [Education, Work Experience, Skills, Projects, Contact] -->
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Priyadarshi | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1', // Indigo-500
+                        secondary: '#a855f7', // Purple-500
+                        darkBg: '#0f172a',  // Slate-900
+                        cardDark: '#1e293b', // Slate-800
+                        lightBg: '#f8fafc', // Slate-50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom timeline vertical line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #cbd5e1; /* slate-300 */
+        }
+        .dark .timeline-line::before {
+            background: #334155; /* slate-700 */
+        }
+        
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 4px;
+        }
+        /* Blinking Cursor for Typewriter */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #6366f1; /* Primary color */
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-200 transition-colors duration-300 font-sans selection:bg-primary selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+                Yash P.
+            </a>
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <a href="#education" class="hover:text-primary transition-colors">Education</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Work Experience</a>
+                    <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <i class="fas fa-moon dark:hidden text-slate-600 text-lg"></i>
+                    <i class="fas fa-sun hidden dark:inline text-yellow-400 text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden">
+        <div class="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        <div class="absolute bottom-20 left-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 w-full grid md:grid-cols-12 gap-8 items-center">
+            
+            <div class="col-span-12 md:col-span-7 space-y-6">
+                
+                <div class="flex items-center gap-2 text-lg md:text-xl font-mono text-slate-500 dark:text-slate-400">
+                    <i class="fas fa-terminal text-primary text-sm"></i>
+                    <span>I specialize in</span>
+                    <span id="typewriter-text" class="text-primary font-bold border-b-2 border-primary"></span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white">
+                    Yash <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500">Priyadarshi</span>
+                </h1>
+
+                <blockquote class="border-l-4 border-primary pl-4 italic text-slate-600 dark:text-slate-400">
+                    "The best way to predict the future is to invent it."
+                </blockquote>
+
+                <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl">
+                    I am a <b>Master's student at Penn State</b> and a former Software Engineer at <b>Ericsson</b>. 
+                    I bridge the gap between scalable distributed infrastructure and cutting-edge AI. 
+                    Whether it's optimizing 5G networks or fine-tuning LLMs, I build systems that are performant, secure, and intelligent.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="https://linkedin.com/in/1402-yp" target="_blank" class="px-7 py-3 bg-primary text-white font-medium rounded-xl hover:bg-indigo-600 hover:-translate-y-1 transition-all shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/yashp1402" target="_blank" class="px-7 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 hover:-translate-y-1 transition-all flex items-center gap-2">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-span-12 md:col-span-5 flex justify-center md:justify-end relative">
+                <div class="relative w-64 h-64 md:w-96 md:h-96 group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    
+                    <img src="./Image.jpeg" 
+                         alt="Yash Priyadarshi" 
+                         class="relative w-full h-full object-cover object-[50%_45%] rounded-full border-4 border-white dark:border-slate-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="py-20 bg-white dark:bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 flex items-center gap-3">
+                <span class="p-2 bg-primary/10 rounded-lg text-primary"><i class="fas fa-graduation-cap"></i></span>
+                Education
+            </h2>
+            
+            <div class="relative pl-8 timeline-line space-y-12">
+                
+                <div class="relative group">
+                    <div class="absolute -left-[41px] top-6 bg-primary h-5 w-5 rounded-full border-4 border-white dark:border-darkBg z-10 group-hover:scale-125 transition-transform"></div>
+                    
+                    <div class="bg-slate-50 dark:bg-cardDark p-8 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:shadow-xl hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">The Pennsylvania State University</h3>
+                                <p class="text-primary font-medium">Master of Science in Computer Science Engineering</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-block px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300">Aug 2024 - May 2026</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>State College, USA &nbsp;|&nbsp; <span class="font-semibold text-primary">GPA: 3.83 / 4</span></p>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[41px] top-6 bg-slate-400 dark:bg-slate-600 h-5 w-5 rounded-full border-4 border-white dark:border-darkBg z-10 group-hover:scale-125 transition-transform"></div>
+                    
+                    <div class="bg-slate-50 dark:bg-cardDark p-8 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:shadow-xl hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Vellore Institute of Technology</h3>
+                                <p class="text-primary font-medium">Bachelor of Technology in Computer Science and Engineering</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-block px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300">Jul 2018 - May 2022</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Vellore, IN &nbsp;|&nbsp; <span class="font-semibold text-primary">GPA: 3.6 / 4</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 flex items-center gap-3">
+                <span class="p-2 bg-primary/10 rounded-lg text-primary"><i class="fas fa-briefcase"></i></span>
+                Work Experience
+            </h2>
+            
+            <div class="relative pl-8 timeline-line space-y-16">
+                
+                <div class="relative group">
+                    <div class="absolute -left-[41px] top-6 bg-primary h-5 w-5 rounded-full border-4 border-white dark:border-darkBg z-10 group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-white dark:bg-cardDark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer II</h3>
+                                <p class="text-primary font-medium">Ericsson</p>
+                            </div>
+                            <div class="text-left md:text-right mt-2 md:mt-0">
+                                <span class="block text-sm font-bold text-slate-500 dark:text-slate-400">Jan 2024 - Jul 2024</span>
+                                <span class="text-xs text-slate-400">Bengaluru, IN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-300 list-disc list-inside marker:text-primary">
+                            <li>Automated complex site deployment workflows for AT&T and CNIS using Python and Golang, reducing manual provisioning overhead by 80% and eliminating human-error configuration drifts.</li>
+                            <li>Led technical mentorship for incoming engineers on KSM architecture, unblocking 5 critical release-blocking issues and accelerating the overall product delivery timeline by 20%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[41px] top-6 bg-slate-400 dark:bg-slate-600 h-5 w-5 rounded-full border-4 border-white dark:border-darkBg z-10 group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-white dark:bg-cardDark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer I</h3>
+                                <p class="text-primary font-medium">Ericsson</p>
+                            </div>
+                            <div class="text-left md:text-right mt-2 md:mt-0">
+                                <span class="block text-sm font-bold text-slate-500 dark:text-slate-400">Jul 2022 - Dec 2023</span>
+                                <span class="text-xs text-slate-400">Bengaluru, IN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-300 list-disc list-inside marker:text-primary">
+                            <li>Engineered a Pre-Upgrade Resource Validator for the CCD platform, eliminating deployment failures by enforcing strict resource allocation constraints prior to system upgrades.</li>
+                            <li>Architected a resilience testing framework in Golang to validate Pod Disruption Budgets across Bare Metal and CAPO clusters, ensuring high availability during node maintenance events.</li>
+                            <li>Hardened the CCD security posture by remediating 95% of CVEs, directly reducing security incident reports by 40%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -left-[41px] top-6 bg-slate-400 dark:bg-slate-600 h-5 w-5 rounded-full border-4 border-white dark:border-darkBg z-10 group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-white dark:bg-cardDark p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern</h3>
+                                <p class="text-primary font-medium">Ericsson</p>
+                            </div>
+                            <div class="text-left md:text-right mt-2 md:mt-0">
+                                <span class="block text-sm font-bold text-slate-500 dark:text-slate-400">Jan 2022 - Jun 2022</span>
+                                <span class="text-xs text-slate-400">Remote, IN</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-300 list-disc list-inside marker:text-primary">
+                            <li>Developed a high-fidelity RESTful API simulator (OMC 2.0) using Flask and Swagger, decoupling frontend development from backend dependencies to accelerate parallel testing.</li>
+                            <li>Containerized the QA simulation environment using Docker and Kubernetes, reducing local environment setup time by 50% and ensuring parity between development and production stages.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white dark:bg-cardDark p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/50 transition-all duration-300 group cursor-default">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Languages</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Python, Go, C++, JavaScript, TypeScript, SQL, Java, Shell Scripting
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/50 transition-all duration-300 group cursor-default">
+                    <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg flex items-center justify-center mb-4 text-cyan-600 dark:text-cyan-400 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Cloud & DevOps</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Kubernetes, Docker, Git, AWS EC2, Helm, Jenkins, Linux, CI/CD, Distributed Systems
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/50 transition-all duration-300 group cursor-default">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4 text-primary text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Backend & Web</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        REST APIs, gRPC, Flask, FastAPI, Node.js, Next.js, Express.js, Tailwind, Prisma, Auth.js
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark p-6 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-lg hover:border-primary/50 transition-all duration-300 group cursor-default">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 text-purple-600 dark:text-purple-400 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Data & AI</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        PostgreSQL, MongoDB, MySQL, TensorFlow, PyTorch, Sklearn, Pandas, R
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+                <span class="p-2 bg-primary/10 rounded-lg text-primary"><i class="fas fa-laptop-code"></i></span>
+                Featured Projects
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-5xl text-slate-400 dark:text-slate-500"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Distributed Key-Value Store</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Dec 2025</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            Orchestrated a fault-tolerant, strongly consistent storage engine in Golang using Multi Paxos for linearizability.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md font-medium">Golang</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md font-medium">Multi Paxos</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md font-medium">gRPC</span>
+                        </div>
+                        <a href="https://github.com/yashp1402/Distributed_KV_Store" class="text-primary text-sm font-bold hover:underline">View Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900/20 dark:to-indigo-800/20 flex items-center justify-center">
+                        <i class="fas fa-layer-group text-5xl text-indigo-300 dark:text-indigo-400"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">SkillForge</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Nov 2025</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            Architected a full-stack app using Next.js 16 & PostgreSQL, slashing page load latency by 40% using server actions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 text-xs rounded-md font-medium">Next.js 16</span>
+                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 text-xs rounded-md font-medium">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 text-xs rounded-md font-medium">Auth.js</span>
+                        </div>
+                        <a href="https://github.com/yashp1402/skillforge" class="text-primary text-sm font-bold hover:underline">View Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/20 dark:to-purple-800/20 flex items-center justify-center">
+                        <i class="fas fa-robot text-5xl text-purple-300 dark:text-purple-400"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">NLP Research Agent</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">May 2025</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            Fine-tuned Llama-3.2 on 3.2k abstracts, boosting BLEU scores by 15% and slashing inference latency by 8%.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 text-xs rounded-md font-medium">Llama-3.2</span>
+                            <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 text-xs rounded-md font-medium">QLoRA</span>
+                            <span class="px-2 py-1 bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 text-xs rounded-md font-medium">Python</span>
+                        </div>
+                        <a href="https://github.com/yashp1402/NLPResearchAgent" class="text-primary text-sm font-bold hover:underline">View Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-900/20 dark:to-pink-800/20 flex items-center justify-center">
+                        <i class="fas fa-person-walking text-5xl text-pink-300 dark:text-pink-400"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Body Pose Forecasting</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Apr 2025</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            Developed an autoregressive forecasting model in PyTorch with VPoser latent encoding and SMPL-X decoding.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-pink-50 dark:bg-pink-900/40 text-pink-600 dark:text-pink-300 text-xs rounded-md font-medium">PyTorch</span>
+                            <span class="px-2 py-1 bg-pink-50 dark:bg-pink-900/40 text-pink-600 dark:text-pink-300 text-xs rounded-md font-medium">Computer Vision</span>
+                        </div>
+                        <a href="#https://github.com/yashp1402/CSE-586_Final-Project" class="text-primary text-sm font-bold hover:underline">View Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-900/20 dark:to-emerald-800/20 flex items-center justify-center">
+                        <i class="fas fa-car text-5xl text-emerald-300 dark:text-emerald-400"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">v-Showroom</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Jun 2021</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            Engineered a full-stack web application with session management and 2FA, supporting 100+ concurrent users.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 text-xs rounded-md font-medium">PHP</span>
+                            <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 text-xs rounded-md font-medium">Firebase</span>
+                            <span class="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 text-xs rounded-md font-medium">JS</span>
+                        </div>
+                        <a href="https://github.com/yashp1402/CarManagement" class="text-primary text-sm font-bold hover:underline">View Project <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-cardDark rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="h-40 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-900/20 dark:to-red-800/20 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-5xl text-red-300 dark:text-red-400"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Secure Door Lock</h3>
+                            <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Nov 2021</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-1">
+                            High-security IoT system using hybrid cryptography (AES, SPECK, PRESENT) on Arduino Uno. Published in IRJET.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-red-50 dark:bg-red-900/40 text-red-600 dark:text-red-300 text-xs rounded-md font-medium">IoT / Arduino</span>
+                            <span class="px-2 py-1 bg-red-50 dark:bg-red-900/40 text-red-600 dark:text-red-300 text-xs rounded-md font-medium">Cryptography</span>
+                            <span class="px-2 py-1 bg-red-50 dark:bg-red-900/40 text-red-600 dark:text-red-300 text-xs rounded-md font-medium">C++</span>
+                        </div>
+                        <a href="https://www.irjet.net/archives/V8/i11/IRJET-V8I11197.pdf" target="_blank" class="text-primary text-sm font-bold hover:underline">Read Paper <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            
+            <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-semibold mb-12 border border-green-200 dark:border-green-800">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                Open to Opportunities
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center gap-8 mb-12">
+                <a href="mailto:yashpriyadar@gmail.com" class="group flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span>yashpriyadar@gmail.com</span>
+                </a>
+                <div class="flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <span>+1 (646) 360-7222</span>
+                </div>
+                <div class="flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <span>State College, PA</span>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-6">
+                <a href="https://linkedin.com/in/1402-yp" target="_blank" class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#0077b5] hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://github.com/yashp1402" target="_blank" class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-black hover:text-white hover:-translate-y-1 transition-all">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-slate-400 text-sm mt-12 border-t border-slate-100 dark:border-slate-800 pt-8">© 2025 Yash Priyadarshi. Built with code.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Logic: If specific 'light' preference is NOT saved, default to Dark
+        if (localStorage.theme === 'light') {
+            html.classList.remove('dark');
+        } else {
+            html.classList.add('dark');
+        }
+
+        // Typewriter Effect Logic (Keep this here if you are using it)
+        const textElement = document.getElementById('typewriter-text');
+        // Check if element exists to prevent errors
+        if (textElement) {
+            const phrases = ["Software Engineering", "Machine Learning/AI", "Data Science", "DevOps"];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+
+            function typeWriter() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 50;
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100;
+                }
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 500;
+                }
+                setTimeout(typeWriter, typeSpeed);
+            }
+            document.addEventListener('DOMContentLoaded', typeWriter);
+        }
+
+        // Toggle Button Logic
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+    </script>
+</body>
+</html>
